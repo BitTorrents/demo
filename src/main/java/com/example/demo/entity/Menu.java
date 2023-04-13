@@ -14,6 +14,6 @@ public class Menu {
 
     private Integer quantity; // 수량
 
-    private int soldOut; // 음식품절
+    private int soldOut; // 품절
 
 }
