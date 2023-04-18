@@ -1,12 +1,10 @@
 package com.example.demo.dto;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
-@Getter
-@Setter
-@ToString
+@Data
+@AllArgsConstructor
 public class Menu {
 
     private String restaurant_Id; // 음식점
