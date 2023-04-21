@@ -13,8 +13,9 @@ public class MenuService {
 
     private final MenuRepository menuRepository;
 
-    public List<Menu> findAll(){
+    public  List<Menu> findAll(){
         return menuRepository.findAll();
     }
+
 
 }
