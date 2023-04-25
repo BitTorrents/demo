@@ -8,7 +8,7 @@ import lombok.*;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class MenuDto {
 
-    private Long Id; // 음식 id
+    private Long id; // 음식 id
 
     private String name; // 음식이름
 

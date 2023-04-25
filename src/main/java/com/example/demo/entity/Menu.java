@@ -18,10 +18,10 @@ public class Menu {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private Long menu_id; // 음식코드
+    private Long id; // 음식코드
 
     @Column(name = "name")
-    private String food_name; // 음식이름
+    private String name; // 음식이름
 
     @Column(name = "price")
     private int price; // 음식가격
