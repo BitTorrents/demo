@@ -4,8 +4,6 @@ import lombok.*;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class MenuDto {
 
     private Long id; // 음식 id
@@ -16,6 +14,6 @@ public class MenuDto {
 
     private String foodDetail; // 음식상세설명
 
-    private int soldOut; // 품절
+    private String sellStatCd; // 품절
 
 }

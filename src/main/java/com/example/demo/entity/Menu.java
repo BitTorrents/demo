@@ -1,32 +1,30 @@
 package com.example.demo.entity;
 
 import com.example.demo.constant.MenuSellStatus;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 
 
 @Entity
+@ToString
 @Getter
 @Setter
-@ToString
+@Table(name = "menu")
 public class Menu {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @Column(name = "menu_id")
     private Long id; // 음식코드
 
-    @Column(name = "name")
+    @Column(nullable = false)
     private String name; // 음식이름
 
-    @Column(name = "price")
+    @Column(nullable = false)
     private int price; // 음식가격
 
-    @Column(name = "foodDetail")
+    @Column(nullable = false)
     private String foodDetail; // 음식상세설명
 
     @Lob
