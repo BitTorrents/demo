@@ -8,7 +8,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 
-@Table(name = "menu")
+
 @Entity
 @Getter
 @Setter
@@ -16,19 +16,20 @@ import javax.persistence.*;
 public class Menu {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id", nullable = false)
-    private Long id; // 음식코드
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private Long menu_id; // 음식코드
 
-    @Column(nullable = false)
-    private String name; // 음식이름
+    @Column(name = "name")
+    private String food_name; // 음식이름
 
-    @Column(name = "price", nullable = false)
-    private Integer price; // 음식가격
+    @Column(name = "price")
+    private int price; // 음식가격
 
-    @Column(nullable = false)
+    @Column(name = "foodDetail")
     private String foodDetail; // 음식상세설명
 
+    @Lob
     @Enumerated(EnumType.STRING)
     private MenuSellStatus menuSellStatus; // 음식판매상태
 }
