@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class MenuFormDto {
+public class MenuSearchDto {
 
     private Long id;
 
@@ -17,6 +17,7 @@ public class MenuFormDto {
     private String foodDetail;
 
     private MenuSellStatus menuSellStatus;
+
 
 }
 
