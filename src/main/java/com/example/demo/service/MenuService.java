@@ -15,7 +15,7 @@ public class MenuService {
 
     public Menu findById(Long id) {
         return menuRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("존재하지 않다"));
+                .orElseThrow(() -> new IllegalArgumentException("상품이 없습니다."));
     }
 
     @Transactional
