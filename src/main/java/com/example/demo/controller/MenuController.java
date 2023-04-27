@@ -11,21 +11,21 @@ public class MenuController {
 
     private final MenuService menuService;
 
-    @PostMapping(value = "/menu/new")
+    @RequestMapping(value = "/menu/new", method = RequestMethod.GET)
     public Long insert(@RequestBody Menu menu) {
         return menuService.save(menu);
     }
-    @GetMapping("/menu/{id}")
+    @RequestMapping(value = "/menu/{id}", method = RequestMethod.GET)
     public Menu read(@PathVariable Long id) {
         return menuService.findById(id);
     }
 
-    @PostMapping("/menu/{id}/update")
+    @RequestMapping(value = "/menu/{id}/update", method = RequestMethod.GET)
     public Long update(@PathVariable Long id,@RequestBody String name,@RequestBody int price,@RequestBody String foodDetail ) {
         return menuService.update(id, name, price, foodDetail);
     }
 
-    @PostMapping("/menu/{id}/delete")
+    @RequestMapping(value = "/menu/{id}/delete", method = RequestMethod.GET)
     public Long delete(@PathVariable Long id) {
         menuService.delete(id);
         return id;
