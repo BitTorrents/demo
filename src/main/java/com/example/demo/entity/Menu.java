@@ -39,6 +39,10 @@ public class Menu {
     }
 
 
-    public Menu(Long id) {
+    public void updateMenu(Long id, String name, int price, String foodDetail) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.foodDetail = foodDetail;
     }
 }
