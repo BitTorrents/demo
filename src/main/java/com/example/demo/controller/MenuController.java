@@ -14,7 +14,6 @@ import java.util.List;
 public class MenuController {
 
     private final MenuService menuService;
-    private final MenuRepository menuRepository;
 
 
     @GetMapping(value = "/{id}")
@@ -29,7 +28,7 @@ public class MenuController {
 
     @PostMapping(value = "/create")
     public Long createMenu(@RequestBody Menu menu){
-        return menuService.createMenu(menu);
+        return menuService.createMenu(menu); //ok
     }
 
     @PostMapping(value = "/{id}/update")

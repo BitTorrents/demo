@@ -30,9 +30,9 @@ public class MenuService {
     }
 
     @Transactional
-    public Long updateMenu(Long id,String name, int price, String foodDetail) {
+    public Long updateMenu(Long id, String name, int price, String foodDetail) {
         Menu menu = findById(id);
-        menu.updateMenu(id,name,price,foodDetail);
+        menu.updateMenu(name,price,foodDetail);
         return id;
     }
 
