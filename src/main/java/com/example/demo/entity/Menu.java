@@ -1,23 +1,20 @@
 package com.example.demo.entity;
 
 import com.example.demo.constant.MenuSellStatus;
-import com.example.demo.dto.MenuDto;
 import lombok.*;
 
 import javax.persistence.*;
 
 
 @Entity
-@ToString
 @Getter
-@Setter
 @Table(name = "menu")
 @NoArgsConstructor
 public class Menu {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "menu")
+    @Column(name = "menu_id")
     private Long id; // 음식코드
 
     @Column(nullable = false)
@@ -34,15 +31,14 @@ public class Menu {
     private MenuSellStatus menuSellStatus; // 음식판매상태
 
     @Builder
-    public Menu(String name, int price, String foodDetail) {
+    public Menu(Long id, String name, int price, String foodDetail) {
+        this.id = id;
         this.name = name;
         this.price = price;
         this.foodDetail = foodDetail;
     }
 
-    public void update(String name, int price, String foodDetail){
-        this.name = name;
-        this.price = price;
-        this.foodDetail = foodDetail;
+
+    public Menu(Long id) {
     }
 }

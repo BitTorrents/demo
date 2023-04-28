@@ -1,6 +1,5 @@
 package com.example.demo.service;
 
-import com.example.demo.dto.MenuDto;
 import com.example.demo.entity.Menu;
 import com.example.demo.repository.MenuRepository;
 import lombok.RequiredArgsConstructor;
@@ -14,28 +13,17 @@ public class MenuService {
     private final MenuRepository menuRepository;
 
     public Menu findById(Long id) {
-        return menuRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("상품이 없습니다."));
+        return menuRepository.findById(id).orElse(null);
+
     }
 
     @Transactional
-    public Long save(Menu menu) {
-        return menuRepository.save(menu).getId();
+    public Menu createMenu(Long id) {
+        Menu menu = new Menu(id);
+        menuRepository.save(menu);
+        return menu;
     }
-
-    @Transactional
-    public Long update(Long id, String name, int price, String foodDetail) {
-        Menu menu = findById(id);
-        menu.update(name,price,foodDetail);
-        return id;
-    }
-
-    @Transactional
-    public void delete(Long id) {
-        Menu menu = findById(id);
-        menuRepository.delete(menu);
-    }
-
-
 
 }
+
+
