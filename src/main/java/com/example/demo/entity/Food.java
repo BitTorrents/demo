@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
 import com.example.demo.constant.MenuSellStatus;
+import com.example.demo.dto.MenuDto;
 import lombok.*;
 
 import javax.persistence.*;
@@ -10,7 +11,7 @@ import javax.persistence.*;
 @Getter
 @Table(name = "food")
 @NoArgsConstructor
-public class Menu {
+public class Food {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,24 +25,26 @@ public class Menu {
     private int price; // 음식가격
 
     @Column(nullable = false)
-    private String foodDetail; // 음식상세설명
+    private String detail; // 음식상세설명
 
     @Lob
     @Enumerated(EnumType.STRING)
     private MenuSellStatus menuSellStatus; // 음식판매상태
 
     @Builder
-    public Menu(Long id, String name, int price, String foodDetail) {
-        this.id = id;
+    public Food(String name, int price, String detail) {
         this.name = name;
         this.price = price;
-        this.foodDetail = foodDetail;
+        this.detail = detail;
+    }
+
+    @Builder
+    public void updateMenu(MenuDto menuDto) {
+        this.name = name;
+        this.price = price;
+        this.detail = detail;
     }
 
 
-    public void updateMenu(String name, int price, String foodDetail) {
-        this.name = name;
-        this.price = price;
-        this.foodDetail = foodDetail;
-    }
+
 }
