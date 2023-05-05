@@ -20,22 +20,22 @@ public class MenuController {
         return menuService.findById(id); //ok
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/api/food")
+    @RequestMapping(method = RequestMethod.GET, value = "/api/foods")
     public List<Food> getMenu() {
         return menuService.findAll(); //ok
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/api/menu")
+    @RequestMapping(method = RequestMethod.POST, value = "/api/menus")
     public Long createMenu(@RequestBody Food food){
         return menuService.createMenu(food); //ok
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/api/{id}/update")
+    @RequestMapping(method = RequestMethod.POST, value = "/api/{id}/updates")
     public Long updateMenu(@PathVariable Long id, @RequestBody MenuDto menuDto) {
-        return menuService.updateMenu(id, menuDto);
+        return menuService.updateMenu(id, menuDto); //ok
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/api/{id}/delete")
+    @RequestMapping(method = RequestMethod.POST, value = "/api/{id}/deletes")
     public Long deleteMenu(@PathVariable Long id) {
         menuService.deleteMenu(id); // ok
         return id;

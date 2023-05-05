@@ -32,9 +32,11 @@ public class MenuService {
 
     @Transactional
     public Long updateMenu(Long id, MenuDto menuDto) {
-        Food food = findById(id);
+        Food food = menuRepository.findById(id).orElseThrow(
+                () -> new IllegalArgumentException("해당 아이디가 존재하지 않습니다.")
+        );
         food.updateMenu(menuDto);
-        return id;
+        return food.getId();
     }
 
     @Transactional

@@ -40,9 +40,9 @@ public class Food {
 
     @Builder
     public void updateMenu(MenuDto menuDto) {
-        this.name = name;
-        this.price = price;
-        this.detail = detail;
+        this.name = menuDto.getName();
+        this.price = menuDto.getPrice();
+        this.detail = menuDto.getDetail();
     }
 
 
