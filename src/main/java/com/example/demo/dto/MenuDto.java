@@ -1,13 +1,18 @@
 package com.example.demo.dto;
 
+import com.example.demo.constant.MenuSellStatus;
+import com.example.demo.entity.FoodEntity;
 import lombok.*;
 
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class MenuDto {
 
-    private Long id; // 음식 id
+    private Long foodId; // 음식 id
 
     private String name; // 음식이름
 
@@ -15,19 +20,18 @@ public class MenuDto {
 
     private String detail; // 음식상세설명
 
-    private String menuSellStatus; // 품절
+    private MenuSellStatus menuSellStatus; // 품절
 
-    @Builder
-    public void Food(String name, int price, String detail) {
-        this.name = name;
-        this.price = price;
-        this.detail = detail;
-    }
+    private int StockNumber; // 재고
 
-    @Builder
-    public void updateMenu(String name, int price, String detail) {
-        this.name = name;
-        this.price = price;
-        this.detail = detail;
+    public static MenuDto fromEntity(FoodEntity food) {
+        return MenuDto.builder()
+                .foodId(food.getFoodId())
+                .name(food.getName())
+                .price(food.getPrice())
+                .detail(food.getDetail())
+                .menuSellStatus(food.getMenuSellStatus())
+                .StockNumber(food.getStockNumber())
+                .build();
     }
 }
