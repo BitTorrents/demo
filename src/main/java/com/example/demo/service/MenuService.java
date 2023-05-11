@@ -33,7 +33,6 @@ public class MenuService {
     @Transactional
     public Long addMenu(MenuDto menuDto) {
         FoodEntity food = FoodEntity.builder()
-//                .foodId(menuDto.getFoodId())
                 .name(menuDto.getName())
                 .price(menuDto.getPrice())
                 .detail(menuDto.getDetail())
