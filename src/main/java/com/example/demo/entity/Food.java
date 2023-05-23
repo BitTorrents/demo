@@ -10,12 +10,13 @@ import javax.persistence.*;
 
 @Entity
 @Getter
+@Setter
 @Table(name = "food")
 @NoArgsConstructor
-public class FoodEntity {
+public class Food {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "food_id")
     private Long foodId; // 음식코드
 
@@ -35,13 +36,19 @@ public class FoodEntity {
     @Column(nullable = false)
     private int stockNumber;
 
+    @ManyToOne
+    @JoinColumn(name = "restaurant_id", nullable = false)
+    private Restaurant restaurant;
+
+
     @Builder
-    public FoodEntity(String name, int price, String detail, MenuSellStatus menuSellStatus, int stockNumber) {
+    public Food(String name, int price, String detail, MenuSellStatus menuSellStatus, int stockNumber, Restaurant restaurant) {
         this.name = name;
         this.price = price;
         this.detail = detail;
         this.stockNumber = stockNumber;
         this.menuSellStatus = menuSellStatus;
+        this.restaurant = restaurant;
     }
 
     public void updateMenu(MenuDto menuDto) {

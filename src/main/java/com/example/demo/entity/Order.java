@@ -1,32 +1,27 @@
 package com.example.demo.entity;
 
-import com.example.demo.constant.OrderStatus;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Getter
 @Setter
 @Table(name = "orders")
-@NoArgsConstructor
 public class Order {
 
     @Id
-    @Column(name = "order_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long ordId;
+    @Column(name = "order_id")
+    public Long id;
 
-    @Column(name = "menu_id")
-    private Long id;
+    @ManyToOne
+    @JoinColumn(name = "restaurant_id", nullable = false)
+    private Restaurant restaurant;
 
-    private LocalDateTime orderDate;
-
-    @Enumerated(EnumType.STRING)
-    private OrderStatus orderStatus;
-
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    private List<OrderFood> orderFoods;
 
 }
